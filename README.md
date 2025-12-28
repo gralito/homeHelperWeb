@@ -16,8 +16,9 @@ a WebApp with tools to help at Home
 
 [ ] Add a task  
 [ ] Remove a task  
-[ ] Check a task done  
+[ ] Check a task when it's done  
 [ ] Modify a task  
+[ ] Filter tasks (done/not)
 
 #### Frontend:
 

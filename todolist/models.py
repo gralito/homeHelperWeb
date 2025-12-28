@@ -9,10 +9,15 @@ class Collection(models.Model):
     def __str__(self):
         return self.name
 
+    @classmethod
+    def get_default_collection(cls) -> "Collection":
+        collection, _ = Collection.objects.get_or_create(name='Default', slug='_default')
+        return collection
+
 
 class Task(models.Model):
     title = models.CharField(max_length=200)
-    description = models.CharField(max_length=400)
+    description = models.CharField(max_length=400, default="")
     done = models.BooleanField(default=False)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
 
