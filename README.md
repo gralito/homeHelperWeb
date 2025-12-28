@@ -6,7 +6,6 @@ a WebApp with tools to help at Home
 
 [ ] A ToDoList App  
 
-  
 ### ToDoList :
 
 [ ] Add a collection  
