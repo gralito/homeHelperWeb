@@ -1,0 +1,7 @@
+.git
+.venv-hhw
+manage.py
+homehelper/__pycache__
+homehelper/__init__.py
+todolist/migrations
+todolist/__init__.py
