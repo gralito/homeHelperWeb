@@ -1,7 +1,9 @@
 from django.shortcuts import render, HttpResponse, redirect, get_object_or_404, reverse
 from django.utils.text import slugify
+from django.utils.html import escape
 
-from todolist.models import Collection
+from todolist.models import Collection, Task
+
 
 # Create your views here.
 def index(request):
@@ -27,6 +29,11 @@ def get_tasks(request, collection_slug):
     context['collections'] = Collection.objects.order_by('slug')
     return render(request, "todolist/index.html", context=context)
     
+
+def add_task(request):
+    task_name = escape(request.POST.get("task"))
+    task, _ = Task.objects.create(title=task_name)
+    # TO IMPLEMENT
 
 def add_collection(request):
     collection_name = request.POST.get("collection")

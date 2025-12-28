@@ -15,6 +15,7 @@ class Collection(models.Model):
         return collection
 
 
+# TASK MODEL
 class Task(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=400, default="")

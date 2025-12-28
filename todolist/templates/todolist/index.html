@@ -29,6 +29,11 @@
         {% for task in tasks %}
             {% include 'todolist/task.html' with task=task %}
         {% endfor %}
+        <form method="POST" action="{% url 'todolist:add-task' %}">
+            {% csrf_token %}
+            <input type='text' placeholder='new task...' name="task"/>
+            <button type=submit>Add</button>
+        </form>
     </div>
 
 </body>
