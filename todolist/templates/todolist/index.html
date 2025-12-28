@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Helper</title>
+    <title>HomeHelper</title>
 </head>
 <body>
-    <h1>Nos ToDoLists</h1>
+    <h1>Nos ToDoLists :</h1>
     
+    <!-- affichage des collections -->
+    <div>
+        {% for collection in collections %}
+            {% include 'todolist/collection.html' with collection=collection %}
+        {% endfor %}
+
+        <form method="POST" action="{% url 'todolist:add-collection' %}">
+            {% csrf_token %}
+            <input type='text' placeholder='new collection...' name="collection"/>
+            <button type=submit>Add</button>
+        </form>
+    </div>
+
 </body>
 </html>

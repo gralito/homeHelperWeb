@@ -6,17 +6,20 @@ a WebApp with tools to help at Home
 
 [ ] A ToDoList App  
 
-### ToDoList :
+### ToDoList
 
-[ ] Add a collection  
-[ ] Remove a collection  
+#### Backend :
+[x] Add a collection  
+[x] Remove a collection  
 [ ] Rename a collection  
-[ ] Avoid same-name collections  
+[x] Avoid same-name collections  
 
 [ ] Add a task  
 [ ] Remove a task  
 [ ] Check a task done  
-[ ] Modify a task
+[ ] Modify a task  
+
+#### Frontend:
 
 
 ## Used technos :
