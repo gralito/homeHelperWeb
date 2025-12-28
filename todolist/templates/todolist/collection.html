@@ -1,6 +1,5 @@
 <!-- template for one collection -->
-<form method="GET" action="{% url 'todolist:get-tasks' collection.id %}">
-    {% csrf_token %}
-    <button type="submit">{{ collection.name }}</button>
+ <div>
+    <a href="{% url 'todolist:get-tasks' collection.slug %}">{{ collection.name }}</a>
     <a href="{% url 'todolist:remove-collection' collection.pk %}">Remove</a>
-</form>
+</div>

@@ -19,9 +19,9 @@ def index(request):
     return render(request, "todolist/index.html", context=context)
 
 
-def get_tasks(request, collection_pk):
+def get_tasks(request, collection_slug):
     context = {}
-    collection = get_object_or_404(Collection, id=collection_pk)
+    collection = get_object_or_404(Collection, slug=collection_slug)
     context['current_collection'] = collection
     context['tasks'] = collection.task_set.all()
     context['collections'] = Collection.objects.order_by('slug')
