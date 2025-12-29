@@ -1,0 +1,39 @@
+/* GENERAL */
+body {
+    margin: 0;
+}
+
+h1 {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: brown;
+    color: white;
+    text-align: center;
+}
+
+.main-content {
+    margin: 0 10px;
+}
+
+/* lists */
+.col-25 {
+    display: inline-block;
+    width: 25%;
+}
+.col-75 {
+    width: 75%;
+    float: right;
+}
+
+.todolist-main {
+    padding-top: 20px;
+}
+.todolist-task {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 2px;
+}

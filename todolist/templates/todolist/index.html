@@ -3,38 +3,42 @@
 {% block content %}
     <h1>Nos ToDoLists :</h1>
     
-    <!-- COLLECTIONS -->
-    <div class="bg-violet">
-        <div id="collections">
-            {% for collection in collections %}
-                {% include 'todolist/collection.html' with collection=collection %}
-            {% endfor %}
+    <div class="main-content">
+        <!-- COLLECTIONS -->
+        <div class="col-25 todolist-main">
+            <div id="collections">
+                {% for collection in collections %}
+                    {% include 'todolist/collection.html' with collection=collection %}
+                {% endfor %}
+            </div>
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type='text' placeholder='new collection...' name="collection"/>
+                <button hx-post="{% url 'todolist:add-collection' %}"
+                        hx-target="#collections"
+                        hx-swap="beforeend"
+                        type=submit>
+                    Add
+                </button>
+            </form>
         </div>
 
-        <form method="POST">
-            {% csrf_token %}
-            <input type='text' placeholder='new collection...' name="collection"/>
-            <button hx-post="{% url 'todolist:add-collection' %}"
-                    hx-target="#collections"
-                    hx-swap="beforeend"
-                    type=submit>
-                Add
-            </button>
-        </form>
-    </div>
-
-    <!-- TASKS --> 
-    <form method="POST">
-        {% csrf_token %}
-        <input type='text' placeholder='new task...' name="task"/>
-        <button hx-post="{% url 'todolist:add-task' %}"
-                hx-target="#tasks"
-                hx-vals="js:{ collection: getCollectionFromUrl() }"
-                hx-swap="beforeend"
-                type=submit>Add</button>
-    </form>
-    <div id="tasks">
-        {% include 'todolist/tasks.html' with tasks=tasks %}
+        <!-- TASKS --> 
+        <div class="col-75 todolist-main">
+            <form method="POST">
+                {% csrf_token %}
+                <input type='text' placeholder='new task...' name="task"/>
+                <button hx-post="{% url 'todolist:add-task' %}"
+                        hx-target="#tasks"
+                        hx-vals="js:{ collection: getCollectionFromUrl() }"
+                        hx-swap="beforeend"
+                        type=submit>Add</button>
+            </form>
+            <div id="tasks">
+                {% include 'todolist/tasks.html' with tasks=tasks %}
+            </div>
+        </div>
     </div>
 {% endblock %}
 
