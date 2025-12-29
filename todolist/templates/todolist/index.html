@@ -9,33 +9,48 @@
 <body>
     <h1>Nos ToDoLists :</h1>
     
-    <!-- affichage des collections -->
+    <!-- COLLECTIONS -->
     <div>
-        <p>
-            Liste en cours : {{ current_collection.name}}
-        </p>
-        {% for collection in collections %}
-            {% include 'todolist/collection.html' with collection=collection %}
-        {% endfor %}
+        <div id="collections">
+            {% for collection in collections %}
+                {% include 'todolist/collection.html' with collection=collection %}
+            {% endfor %}
+        </div>
 
-        <form method="POST" action="{% url 'todolist:add-collection' %}">
+        <form method="POST">
             {% csrf_token %}
             <input type='text' placeholder='new collection...' name="collection"/>
-            <button type=submit>Add</button>
+            <button hx-post="{% url 'todolist:add-collection' %}"
+                    hx-target="#collections"
+                    hx-swap="beforeend"
+                    type=submit>
+                Add
+            </button>
         </form>
     </div>
 
-    <!-- affichage des taches -->
-    <div>
-        {% for task in tasks %}
-            {% include 'todolist/task.html' with task=task %}
-        {% endfor %}
-        <form method="POST" action="{% url 'todolist:add-task' current_collection.pk %}">
-            {% csrf_token %}
-            <input type='text' placeholder='new task...' name="task"/>
-            <button type=submit>Add</button>
-        </form>
+    <!-- TASKS --> 
+    <form method="POST">
+        {% csrf_token %}
+        <input type='text' placeholder='new task...' name="task"/>
+        <button hx-post="{% url 'todolist:add-task' %}"
+                hx-target="#tasks"
+                hx-vals="js:{ collection: getCollectionFromUrl() }"
+                hx-swap="beforeend"
+                type=submit>Add</button>
+    </form>
+    <div id="tasks">
+        {% include 'todolist/tasks.html' with tasks=tasks %}
     </div>
 
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function getCollectionFromUrl() {
+            let url = new URL(window.location.href);
+            let searchParams = url.searchParams;
+            return searchParams.get('collection');
+        }
+    </script>
 </body>
 </html>

@@ -9,28 +9,37 @@ from todolist.models import Collection, Task
 def index(request):
     context = {}
     collection_slug = request.GET.get('collection')
+    collections = Collection.objects.order_by('slug')
+
     if not collection_slug:
         collection = Collection.get_default_collection()
-        # return redirect(f"{reverse('todolist:home')}?collection=_default")
-    else:
-        collection = get_object_or_404(Collection, slug=collection_slug)
-    context = get_context(collection)
-    return render(request, "todolist/index.html", context=context)
-
-
-def get_tasks(request, collection_slug):
-    context = {}
+        return redirect(f"{reverse('todolist:home')}?collection=_default")
     collection = get_object_or_404(Collection, slug=collection_slug)
-    context = get_context(collection)
-    return render(request, "todolist/index.html", context=context)
+    tasks = collection.task_set.all()
+
+    return render(request, "todolist/index.html", context={
+        "collection": collection,
+        "collections": collections,
+        "tasks": tasks
+    })
+
+
+# OK
+def get_tasks(request, collection_slug):
+    collection = get_object_or_404(Collection, slug=collection_slug)
+    tasks = collection.task_set.all()
+    return render(request, "todolist/tasks.html", context={
+        "tasks": tasks
+    })
     
 
-def add_task(request, collection_pk):
-    context = {}
+def add_task(request):
+    collection = Collection.objects.get(slug=request.POST.get('collection'))
     task_name = escape(request.POST.get("task"))
-    collection = get_object_or_404(Collection, id=collection_pk)
-    task, _ = Task.objects.create(title=task_name)
-    context = get_context(collection)
+    task = Task.objects.create(title=task_name, collection=collection)
+    return render(request, 'todolist/task.html', context={
+        "task": task
+    })
 
 
 def add_collection(request):
@@ -39,19 +48,10 @@ def add_collection(request):
                                                         slug=slugify(collection_name))
     if not created:
         return HttpResponse("This collection already exists")
-    return redirect('todolist:home')
+    return render(request, "todolist/collection.html", context={"collection": collection})
 
 
 def remove_collection(request, collection_pk):
     collection = get_object_or_404(Collection, id=collection_pk)
     collection.delete()
     return redirect('todolist:home')
-
-
-# TOOLS
-def get_context(collection):
-    context = {}
-    context['current_collection'] = collection
-    context['tasks'] = collection.task_set.all()
-    context['collections'] = Collection.objects.order_by('slug')
-    return context
