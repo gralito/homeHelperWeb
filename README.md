@@ -5,8 +5,10 @@ a WebApp with tools to help at Home
 ## Features :
 
 [ ] A ToDoList App  
+[ ] A Freezer App  
 
 ### ToDoList
+A basic todoList app.
 
 #### Backend :
 [x] Add a collection  
@@ -14,9 +16,9 @@ a WebApp with tools to help at Home
 [ ] Rename a collection  
 [x] Avoid same-name collections  
 
-[ ] Add a task  
-[ ] Remove a task  
-[ ] Check a task when it's done  
+[x] Add a task  
+[x] Remove a task  
+[x] Check a task when it's done  
 [ ] Modify a task  
 [ ] Filter tasks (done/not)
 
@@ -25,5 +27,4 @@ a WebApp with tools to help at Home
 
 ## Used technos :
 
-FrontEnd    => HTML, CSS  
-BackEnd     => Python, Django Framework
+Python (Django), htmx, HTML, CSS, JavaScript

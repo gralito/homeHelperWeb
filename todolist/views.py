@@ -24,7 +24,6 @@ def index(request):
     })
 
 
-# OK
 def get_tasks(request, collection_slug):
     collection = get_object_or_404(Collection, slug=collection_slug)
     tasks = collection.task_set.all()
@@ -36,14 +35,31 @@ def get_tasks(request, collection_slug):
 def add_task(request):
     collection = Collection.objects.get(slug=request.POST.get('collection'))
     task_name = escape(request.POST.get("task"))
+    if task_name == "":
+        return
     task = Task.objects.create(title=task_name, collection=collection)
     return render(request, 'todolist/task.html', context={
         "task": task
     })
 
 
+def remove_task(request, task_pk):
+    task = get_object_or_404(Task, id=task_pk)
+    task.delete()
+    return HttpResponse("")
+
+
+def toggle_done(request, task_pk):
+    task = get_object_or_404(Task, id=task_pk)
+    task.done = not task.done
+    task.save()
+    return
+
+
 def add_collection(request):
-    collection_name = request.POST.get("collection")
+    collection_name = escape(request.POST.get("collection"))
+    if collection_name == "":
+        return
     collection, created = Collection.objects.get_or_create(name=collection_name,
                                                         slug=slugify(collection_name))
     if not created:
