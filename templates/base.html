@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomeHelper</title>
     <link rel="stylesheet" href="{% static 'todolist/css/style.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js" integrity="sha384-/TgkGk7p307TH7EXJDuUlgG3Ce1UVolAOFopFekQkkXihi5u/6OCvVKyz1W+idaz" crossorigin="anonymous"></script>
 </head>
 <body>
+    <ul class="home-nav">
+        <li class="home-m-0">Home</li>
+        <li class="home-m-0">ToDo Lists</li>
+    </ul>
 
-    {% block content %}
-    {% endblock %}
+    <div class="home-content">
+        {% block content %}
+        {% endblock %}
+    </div>
 
     <!-- JAVASCRIPT -->
     <script src="{% static 'todolist/js/tools.js' %}"></script>

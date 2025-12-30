@@ -3,13 +3,17 @@ body {
     margin: 0;
 }
 
-h1 {
+/* TITLE BAR */
+.todolist-title {
     margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: brown;
-    color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
     text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../img/totdolist-title-background.jpg') no-repeat center center/cover;
+}
+.todolist-title h1 {
+    color: white;
+    margin: 0px;
 }
 
 .main-content {
