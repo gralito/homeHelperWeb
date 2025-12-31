@@ -5,7 +5,6 @@ from django.utils.html import escape
 from todolist.models import Collection, Task
 
 
-# Create your views here.
 def index(request):
     context = {}
     collection_slug = request.GET.get('collection')
@@ -14,6 +13,7 @@ def index(request):
     if not collection_slug:
         collection = Collection.get_default_collection()
         return redirect(f"{reverse('todolist:home')}?collection=_default")
+    
     collection = get_object_or_404(Collection, slug=collection_slug)
     tasks = collection.task_set.all()
 
@@ -46,7 +46,8 @@ def add_task(request):
 def remove_task(request, task_pk):
     task = get_object_or_404(Task, id=task_pk)
     task.delete()
-    return HttpResponse("")
+    collection = escape(request.POST.get("collection"))
+    return get_tasks(request, collection)
 
 
 def toggle_done(request, task_pk):
