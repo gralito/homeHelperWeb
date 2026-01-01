@@ -1,7 +1,11 @@
 /* GENERAL */
 body {
     margin: 0;
+    box-sizing: border-box;
 }
+
+
+/*** TOP BAR ***/
 
 /* TITLE BAR */
 .todolist-title {
@@ -9,37 +13,33 @@ body {
     padding-top: 30px;
     padding-bottom: 30px;
     text-align: center;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../img/totdolist-title-background.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('../img/todolist-title-background.jpg') no-repeat center center/cover;
+    position: relative;
 }
 .todolist-title h1 {
     color: white;
     margin: 0px;
 }
-
-
-.main-content {
-    margin: 0 10px;
+/* TODOLIST LOG */
+.todolist-log {
+    position:absolute;
+    top: 20px;
+    left: 10px;
 }
-.main-content form {
+.todolist-log p {
+    color:white;
+    font-size: 20px;
+    margin: 0;
+}
+.todolist-log button {
     margin-top: 10px;
 }
 
-/* lists */
-.col-25 {
-    display: inline-block;
-    width: 25%;
-}
-.col-75 {
-    width: 75%;
-    float: right;
-}
 
-
-.todolist-task {
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-    border-radius: 5px;
-    margin-top: 5px;
-    padding: 2px;
+/*** CONTENT ***/
+.main-content {
+    margin: 0px 10px;
+}
+.todolist-form-collection {
+    overflow: auto;
 }

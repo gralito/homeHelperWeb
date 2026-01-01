@@ -3,16 +3,17 @@
 {% block content %}
     <!-- TITLE BAR -->
     <div class="todolist-title">
+        <div class="todolist-log">
+            <p>{{ current_user }}</p>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>
         <h1>ToDoLists</h1>
     </div>
 
     <div class="main-content">
-        <!-- Logout button -->
-         <p>{{ current_user }}</p>
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
         <!-- COLLECTIONS -->
         <div class="col-25">
             <div id="collections">
@@ -20,26 +21,31 @@
                     {% include 'todolist/collection.html' with collection=collection %}
                 {% endfor %}
             </div>
-
-            <form method="POST">
-                {% csrf_token %}
-                <input class="todolist-input-add" type='text' placeholder='new collection...' name="collection"/>
-                <button class="todolist-button-add"
-                        hx-post="{% url 'todolist:add-collection' %}"
-                        hx-target="#collections"
-                        hx-swap="beforeend"
-                        type=submit>
-                    Add
-                </button>
-            </form>
+            <div class="todolist-form-collection">
+                <form method="POST">
+                    {% csrf_token %}
+                    <input class="todolist-input-add mt-20" type='text' placeholder='new collection...' name="collection"/>
+                    <button class="todolist-button-add mt-20 w-100"
+                            hx-post="{% url 'todolist:add-collection' %}"
+                            hx-target="#collections"
+                            hx-swap="beforeend"
+                            type=submit>
+                        Add
+                    </button>
+                </form>
+            </div>
         </div>
 
-        <!-- TASKS -->
-        
 
-        
+        <!-- TASKS -->
+
         <div class="col-75">
+            
             <h2 class="todolist-current-collection">{{ collection }}</h2>
+            <form method="POST" action="{% url 'todolist:remove-collection' collection.pk %}">
+                <button type="submit">Remove</button>
+            </form>
+            
             <form method="POST">
                 {% csrf_token %}
                 <input class="todolist-input-add" type='text' placeholder='new task...' name="task"/>
@@ -50,6 +56,7 @@
                         hx-swap="beforeend"
                         type=submit>Add</button>
             </form>
+
             <div id="tasks">
                 {% include 'todolist/tasks.html' with tasks=tasks %}
             </div>

@@ -1,12 +1,13 @@
- <form method="POST">
-    {% csrf_token %}
-    <button class="todolist-collection-button"
-            hx-post="{% url 'todolist:get-tasks' collection.slug %}"
-            hx-target="#tasks"
-            hx-push-url="?collection={{ collection.slug }}"
-            hx-swap="innerHTML"
-            type="submit">
-        {{ collection.name }}
-    </button>
-    <a href="{% url 'todolist:remove-collection' collection.pk %}">Remove</a>
-</form>
+<div class="mt-20">
+    <form method="POST">
+        {% csrf_token %}
+        <button class="w-100"
+                hx-post="{% url 'todolist:get-tasks' collection.slug %}"
+                hx-target="#tasks"
+                hx-push-url="?collection={{ collection.slug }}"
+                hx-swap="innerHTML"
+                type="submit">
+            {{ collection.name }}
+        </button>
+    </form>
+</div>
