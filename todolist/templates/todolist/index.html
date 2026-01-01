@@ -4,13 +4,14 @@
     <!-- TITLE BAR -->
     <div class="todolist-title">
         <h1>ToDoLists</h1>
+    </div>
+
+    <div class="main-content">
+        <!-- Logout button -->
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <button type="submit">Logout</button>
         </form>
-    </div>
-
-    <div class="main-content">
         <!-- COLLECTIONS -->
         <div class="col-25 todolist-main">
             <div id="collections">

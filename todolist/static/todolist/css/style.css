@@ -16,8 +16,12 @@ body {
     margin: 0px;
 }
 
+
 .main-content {
     margin: 0 10px;
+}
+.main-content form {
+    margin-top: 10px;
 }
 
 /* lists */

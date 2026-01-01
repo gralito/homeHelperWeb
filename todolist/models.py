@@ -18,7 +18,6 @@ class Collection(models.Model):
 # TASK MODEL
 class Task(models.Model):
     title = models.CharField(max_length=200)
-    description = models.CharField(max_length=400, default="")
     done = models.BooleanField(default=False)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
 
