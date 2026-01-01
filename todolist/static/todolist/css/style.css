@@ -34,9 +34,7 @@ body {
     float: right;
 }
 
-.todolist-main {
-    padding-top: 20px;
-}
+
 .todolist-task {
     border-width: 1px;
     border-style: solid;

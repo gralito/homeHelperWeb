@@ -8,12 +8,13 @@
 
     <div class="main-content">
         <!-- Logout button -->
+         <p>{{ current_user }}</p>
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <button type="submit">Logout</button>
         </form>
         <!-- COLLECTIONS -->
-        <div class="col-25 todolist-main">
+        <div class="col-25">
             <div id="collections">
                 {% for collection in collections %}
                     {% include 'todolist/collection.html' with collection=collection %}
@@ -37,7 +38,7 @@
         
 
         
-        <div class="col-75 todolist-main">
+        <div class="col-75">
             <h2 class="todolist-current-collection">{{ collection }}</h2>
             <form method="POST">
                 {% csrf_token %}

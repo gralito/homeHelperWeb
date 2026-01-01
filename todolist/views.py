@@ -20,7 +20,8 @@ def index(request):
     return render(request, "todolist/index.html", context={
         "collection": collection,
         "collections": collections,
-        "tasks": tasks
+        "tasks": tasks,
+        "current_user": request.user.username
     })
 
 
