@@ -17,8 +17,8 @@
 
             <form method="POST">
                 {% csrf_token %}
-                <input type='text' placeholder='new collection...' name="collection"/>
-                <button class="todolist-add-button"
+                <input class="todolist-input-add" type='text' placeholder='new collection...' name="collection"/>
+                <button class="todolist-button-add"
                         hx-post="{% url 'todolist:add-collection' %}"
                         hx-target="#collections"
                         hx-swap="beforeend"
@@ -36,8 +36,8 @@
             <h2 class="todolist-current-collection">{{ collection }}</h2>
             <form method="POST">
                 {% csrf_token %}
-                <input type='text' placeholder='new task...' name="task"/>
-                <button class="todolist-add-button"
+                <input class="todolist-input-add" type='text' placeholder='new task...' name="task"/>
+                <button class="todolist-button-add"
                         hx-post="{% url 'todolist:add-task' %}"
                         hx-target="#tasks"
                         hx-vals="js:{ collection: getCollectionFromUrl() }"
