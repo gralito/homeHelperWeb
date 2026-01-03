@@ -1,21 +1,21 @@
 /*** GENERAL DISPLAY ***/
 
-/* COLUMNS */ 
-.col-25 {
-    display: inline-block;
-    width: 25%;
+/* DEBUG */
+.debug-border {
+    border: black 1px solid;
 }
-.col-75 {
-    width: 75%;
+
+/* COLUMNS */ 
+.col-20 {
+    display: inline-block;
+    width: 20%;
+}
+.col-80 {
+    width: 78%;
     float: right;
 }
 
-/* MARGIN */
-.mt-20 {
-    margin-top: 20px;
-}
-
 /* WIDTH */
-.w-100 {
-    width: 100%;
+.w-75 {
+    width: 75%;
 }

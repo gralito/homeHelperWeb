@@ -6,7 +6,7 @@ function getCollectionFromUrl() {
 
 
 function setCurrentCollectionTitle () {
-    let buttons = document.querySelectorAll(".todolist-collection-button");
+    let buttons = document.querySelectorAll(".todolist-nav-button");
     buttons.forEach(button => {
         button.addEventListener("click", () => {
             let title = document.body.getElementsByClassName("todolist-current-collection")[0];

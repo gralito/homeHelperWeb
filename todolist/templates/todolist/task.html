@@ -1,4 +1,4 @@
-<div  class="todolist-task">
+<div class="debug-border">
     <form method="POST">
         {% csrf_token %}
         <input  hx-post="{% url 'todolist:toggle-done' task.pk %}"

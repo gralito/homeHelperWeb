@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <!-- TITLE BAR -->
-    <div class="todolist-title">
+    <header class="todolist-title">
         <div class="todolist-log">
             <p>{{ current_user }}</p>
             <form action="{% url 'logout' %}" method="post">
@@ -11,40 +12,33 @@
             </form>
         </div>
         <h1>ToDoLists</h1>
-    </div>
+    </header>
 
-    <div class="main-content">
+    <main>
         <!-- COLLECTIONS -->
-        <div class="col-25">
-            <div id="collections">
+        <div class="col-20 todolist-nav">
+            <nav id="collections">
                 {% for collection in collections %}
                     {% include 'todolist/collection.html' with collection=collection %}
                 {% endfor %}
-            </div>
-            <div class="todolist-form-collection">
-                <form method="POST">
-                    {% csrf_token %}
-                    <input class="todolist-input-add mt-20" type='text' placeholder='new collection...' name="collection"/>
-                    <button class="todolist-button-add mt-20 w-100"
-                            hx-post="{% url 'todolist:add-collection' %}"
-                            hx-target="#collections"
-                            hx-swap="beforeend"
-                            type=submit>
-                        Add
-                    </button>
-                </form>
-            </div>
+            </nav>
+            <form method="POST">
+                {% csrf_token %}
+                <input class="todolist-input-add w-75" type='text' placeholder='new collection...' name="collection"/>
+                <img src="{% static 'todolist/img/todolist-icon-add.png' %}" 
+                    class="todolist-icon todolist-button-add todolist-action-button"
+                    hx-post="{% url 'todolist:add-collection' %}"
+                    hx-target="#collections"
+                    hx-swap="beforeend">
+            </form>
         </div>
 
 
         <!-- TASKS -->
 
-        <div class="col-75">
+        <div class="col-80 debug-border">
             
             <h2 class="todolist-current-collection">{{ collection }}</h2>
-            <form method="POST" action="{% url 'todolist:remove-collection' collection.pk %}">
-                <button type="submit">Remove</button>
-            </form>
             
             <form method="POST">
                 {% csrf_token %}
@@ -61,6 +55,6 @@
                 {% include 'todolist/tasks.html' with tasks=tasks %}
             </div>
         </div>
-    </div>
+    </main>
 {% endblock %}
 

@@ -1,13 +1,15 @@
-<div class="mt-20">
-    <form method="POST">
-        {% csrf_token %}
-        <button class="w-100"
-                hx-post="{% url 'todolist:get-tasks' collection.slug %}"
-                hx-target="#tasks"
-                hx-push-url="?collection={{ collection.slug }}"
-                hx-swap="innerHTML"
-                type="submit">
-            {{ collection.name }}
-        </button>
-    </form>
-</div>
+{% load static %}
+<form   method="POST" class="todolist-collection">
+    {% csrf_token %}
+    <button hx-post="{% url 'todolist:get-tasks' collection.slug %}"
+            hx-target="#tasks"
+            hx-push-url="?collection={{ collection.slug }}"
+            hx-swap="innerHTML"
+            type="submit"
+            class="todolist-nav-button w-75">
+        {{ collection.name }}
+    </button>
+    <a href="{% url 'todolist:remove-collection' collection.pk %}" class="todolist-action-button">
+            <img src="{% static 'todolist/img/todolist-icon-remove.png' %}" class="todolist-icon">
+    </a>
+</form>
