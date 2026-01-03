@@ -17,15 +17,17 @@
     <main>
         <!-- COLLECTIONS -->
         <div class="col-20 todolist-nav">
+            <!-- COLLECTIONS LIST -->
             <nav id="collections">
                 {% for collection in collections %}
                     {% include 'todolist/collection.html' with collection=collection %}
                 {% endfor %}
             </nav>
-            <form method="POST">
+            <!-- ADD A COLLECTION -->
+            <form class="form-add-collection" method="POST">
                 {% csrf_token %}
                 <input class="todolist-input-add w-75" type='text' placeholder='new list...' name="collection"/>
-                <button class="todolist-button-add"
+                <button class="todolist-button-add w-75"
                         hx-post="{% url 'todolist:add-collection' %}"
                         hx-target="#collections"
                         hx-swap="beforeend">
@@ -36,12 +38,9 @@
 
 
         <!-- TASKS -->
-
-        <div class="col-80 debug-border">
-            
+        <div class="col-80">
             <h2 class="todolist-current-collection">{{ collection }}</h2>
-            
-            <form method="POST">
+            <form class="todolist-form-add" method="POST">
                 {% csrf_token %}
                 <input class="todolist-input-add" type='text' placeholder='new task...' name="task"/>
                 <button class="todolist-button-add"
@@ -51,7 +50,6 @@
                         hx-swap="beforeend"
                         type=submit>Add</button>
             </form>
-
             <div id="tasks">
                 {% include 'todolist/tasks.html' with tasks=tasks %}
             </div>
