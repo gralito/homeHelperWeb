@@ -24,12 +24,13 @@
             </nav>
             <form method="POST">
                 {% csrf_token %}
-                <input class="todolist-input-add w-75" type='text' placeholder='new collection...' name="collection"/>
-                <img src="{% static 'todolist/img/todolist-icon-add.png' %}" 
-                    class="todolist-icon todolist-button-add todolist-action-button"
-                    hx-post="{% url 'todolist:add-collection' %}"
-                    hx-target="#collections"
-                    hx-swap="beforeend">
+                <input class="todolist-input-add w-75" type='text' placeholder='new list...' name="collection"/>
+                <button class="todolist-button-add"
+                        hx-post="{% url 'todolist:add-collection' %}"
+                        hx-target="#collections"
+                        hx-swap="beforeend">
+                        Add
+                </button>
             </form>
         </div>
 

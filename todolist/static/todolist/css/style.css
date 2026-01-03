@@ -43,8 +43,8 @@ input {
 
 /*** MAIN CONTENT ***/
 main {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
     height: 100%;
 }
 
@@ -64,7 +64,7 @@ main {
 .todolist-nav-button {
     margin-left: 3px;
     border-radius: 10px;
-    align-items: center;
+    background: linear-gradient(rgb(139, 169, 206), rgba(139, 169, 206, 0.6));
 }
 .todolist-collection {
     margin-bottom: 10px;
@@ -74,8 +74,13 @@ main {
 }
 .todolist-icon {
     height: 18px;
+    margin-right: 9px;
 
 }
 .todolist-action-button {
     display: flex;
 }
+
+/* CONTENT */
+/* h2.todolist-current-collection {
+} */
