@@ -29,6 +29,7 @@ Python (Django), htmx, HTML, CSS, JavaScript
 [ ] avoiding same name collections  
     doesn't work with differents cases  
     but same slug  
+[ ] dissociate the buttons in JavaScript
 
 => to implement (v2.0)  
 [ ] Rename a collection  

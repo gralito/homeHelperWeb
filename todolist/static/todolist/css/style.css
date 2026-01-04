@@ -86,6 +86,8 @@ main {
 }
 .todolist-button-add {
     margin-top: 10px;
+    border-radius: 10px;
+    background: linear-gradient(rgb(67, 191, 36), rgba(67, 191, 36, 0.6));
 }
 
 
