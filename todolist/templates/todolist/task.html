@@ -1,8 +1,8 @@
-<div class="debug-border">
-    <form method="POST">
+<div >
+    <form method="POST" class="todolist-task">
         {% csrf_token %}
         <input  hx-post="{% url 'todolist:toggle-done' task.pk %}"
-                type="checkbox" name="task-done">
+                type="checkbox" name="task-done"/>
         <p>{{ task.title }}</p>
         <button hx-post="{% url 'todolist:remove-task' task.pk %}"
                 hx-target="#tasks"

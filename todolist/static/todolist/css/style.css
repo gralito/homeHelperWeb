@@ -4,10 +4,10 @@ body {
     box-sizing: border-box;
     
 }
-input {
+/* input {
     -webkit-appearance: none;
     appearance: none;
-    }
+    } */
 
 
 /*** TITLE BAR ***/
@@ -43,15 +43,15 @@ input {
 
 /*** MAIN CONTENT ***/
 main {
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
     height: 100%;
 }
 
 /* TODOLIST NAVBAR */
 .todolist-nav {
     position: fixed;
-    height: 100%;margin-right: 10px;
+    height: 100%;
 }
 #collections {
     padding-top: 10px;
@@ -69,6 +69,7 @@ main {
     justify-content: space-around;
     align-items: center;
     display: flex;
+    width: auto;
 }
 .todolist-icon {
     height: 18px;
@@ -89,8 +90,40 @@ main {
 
 
 /* CONTENT */
+.main-content {
+    float: right;
+    height: 100%;
+}
+.content-title {
+    display: flex;
+    flex-direction: column;
+}
 h2.todolist-current-collection {
-    text-align: center;
-    margin-left: 30px;
-    border: 2px black solid;
+    /* text-align: center; */
+    margin: 0;
+    /* border: 2px black solid; */
+}
+.todolist-form-add {
+    margin: 0;
+}
+.todolist-task {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-right: 10px;
+    border: black 1px solid;
+    border-radius: 10px;
+    width: auto;
+}
+.todolist-task p {
+    width: 90%;
+}
+.todolist-task button {
+    height: fit-content;
+}
+.todolist-task input {
+    margin-right: 10px;
+}
+#tasks {
+    display: flex;
 }

@@ -38,18 +38,20 @@
 
 
         <!-- TASKS -->
-        <div class="col-80">
-            <h2 class="todolist-current-collection">{{ collection }}</h2>
-            <form class="todolist-form-add" method="POST">
-                {% csrf_token %}
-                <input class="todolist-input-add" type='text' placeholder='new task...' name="task"/>
-                <button class="todolist-button-add"
-                        hx-post="{% url 'todolist:add-task' %}"
-                        hx-target="#tasks"
-                        hx-vals="js:{ collection: getCollectionFromUrl() }"
-                        hx-swap="beforeend"
-                        type=submit>Add</button>
-            </form>
+        <div class="col-80 main-content">
+            <div class="content-title">
+                <h2 class="todolist-current-collection">{{ collection }}</h2>
+                <form class="form-add-task" method="POST">
+                    {% csrf_token %}
+                    <input class="todolist-input-add" type='text' placeholder='new task...' name="task"/>
+                    <button class="todolist-button-add"
+                            hx-post="{% url 'todolist:add-task' %}"
+                            hx-target="#tasks"
+                            hx-vals="js:{ collection: getCollectionFromUrl() }"
+                            hx-swap="beforeend"
+                            type=submit>Add</button>
+                </form>
+            </div>
             <div id="tasks">
                 {% include 'todolist/tasks.html' with tasks=tasks %}
             </div>
