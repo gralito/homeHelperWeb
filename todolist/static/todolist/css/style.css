@@ -9,6 +9,10 @@ body {
     appearance: none;
     } */
 
+/* COLORS */
+:root {
+    --bg-task: rgba(105, 105, 105, 0.729);
+}
 
 /*** TITLE BAR ***/
 
@@ -81,7 +85,6 @@ main {
 .form-add-collection {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-top: 30px;
 }
 .todolist-button-add {
@@ -97,35 +100,49 @@ main {
     height: 100%;
 }
 .content-title {
+    width: 40%;
+    margin: 15px 20px;
+    padding: 4px 4px;
+
+}
+.content-title div {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 5px;
 }
-h2.todolist-current-collection {
-    /* text-align: center; */
-    margin: 0;
-    /* border: 2px black solid; */
+.content-title h2 {
+    text-align: center;
+    margin: 5px 0px;
 }
-.todolist-form-add {
-    margin: 0;
+.content-title input {
+    padding: 0px 6px;
+    border-radius: 10px;
+    height: 18px;
+}
+#tasks {
+    margin-left: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
 }
 .todolist-task {
+    grid-column-start: 1;
     display: flex;
     align-items: center;
-    margin-top: 10px;
-    padding-right: 10px;
-    border: black 1px solid;
-    border-radius: 10px;
+    height: 30px;
+    border:var(--bg-task) 1px solid;
+    border-radius: 15px;
+    background: linear-gradient(rgb(139, 169, 206), rgba(139, 169, 206, 0.6));
+}
+.todolist-task input {
+    justify-self: left;
     width: auto;
 }
 .todolist-task p {
-    width: 90%;
+    width: 73%;
 }
 .todolist-task button {
-    height: fit-content;
-}
-.todolist-task input {
-    margin-right: 10px;
-}
-#tasks {
-    display: flex;
+    width: 20%;
+    background: linear-gradient(rgba(230, 83, 78, 0.803), rgba(230, 83, 78, 0.583));
+    border-radius: 10px;
 }

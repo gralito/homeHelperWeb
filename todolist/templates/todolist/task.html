@@ -1,15 +1,13 @@
-<div >
-    <form method="POST" class="todolist-task">
-        {% csrf_token %}
-        <input  hx-post="{% url 'todolist:toggle-done' task.pk %}"
-                type="checkbox" name="task-done"/>
-        <p>{{ task.title }}</p>
-        <button hx-post="{% url 'todolist:remove-task' task.pk %}"
-                hx-target="#tasks"
-                hx-vals="js:{ collection: getCollectionFromUrl() }"
-                hw-swap="outerHTML"
-                type="submit">
-            Remove
-        </button>
-    </form>
-</div>
+<form method="POST" class="todolist-task">
+    {% csrf_token %}
+    <input  hx-post="{% url 'todolist:toggle-done' task.pk %}"
+            type="checkbox" name="task-done"/>
+    <p>{{ task.title }}</p>
+    <button hx-post="{% url 'todolist:remove-task' task.pk %}"
+            hx-target="#tasks"
+            hx-vals="js:{ collection: getCollectionFromUrl() }"
+            hw-swap="outerHTML"
+            type="submit">
+        Remove
+    </button>
+</form>

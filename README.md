@@ -5,7 +5,7 @@ a WebApp with tools to help at Home
 ## Features :
 
 [ ] A ToDoList App  
-[ ] A Freezer App  
+<!-- [ ] A Freezer App   -->
 
 ### ToDoList
 
@@ -13,25 +13,26 @@ A basic todoList app.
 
 - Add a collection  
 - Remove a collection  
-- Avoid same-name collections  
+<!-- - Avoid same-name collections   -->
 
 
 - Add a task  
 - Remove a task  
 - Check a task when it's done  
 
-## Used technos :
+## Technologies
 
 Python (Django), htmx, HTML, CSS, JavaScript
 
-# BUGS TO FIX
+# Left to do 
 
 [ ] avoiding same name collections  
     doesn't work with differents cases  
     but same slug  
-[ ] dissociate the buttons in JavaScript
+[ ] dissociate the buttons in JavaScript  
+[ ] TOPBAR => Appli principale avec BG dynamique  
 
-=> to implement (v2.0)  
+<!-- => to implement (v2.0)  
 [ ] Rename a collection  
 [ ] Modify a task  
-[ ] Filter tasks (done/not)
+[ ] Filter tasks (done/not) -->
