@@ -32,6 +32,7 @@ Python (Django), htmx, HTML, CSS, JavaScript
 [ ] dissociate the buttons in JavaScript  
 [ ] TOPBAR => Appli principale avec BG dynamique  
 
+
 <!-- => to implement (v2.0)  
 [ ] Rename a collection  
 [ ] Modify a task  

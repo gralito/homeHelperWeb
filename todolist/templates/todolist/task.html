@@ -1,13 +1,21 @@
-<form method="POST" class="todolist-task">
+<form   method="POST" 
+        class="todolist-task {% if task.done %}task-done{% endif %}">
     {% csrf_token %}
-    <input  hx-post="{% url 'todolist:toggle-done' task.pk %}"
-            type="checkbox" name="task-done"/>
     <p>{{ task.title }}</p>
+    <button hx-post="{% url 'todolist:toggle-done' task.pk %}"
+            hx-target="#tasks"
+            hx-swap="innerHTML"
+            type="submit" 
+            name="task-done"
+            class="task-button button-done">
+        Done
+    </button>
     <button hx-post="{% url 'todolist:remove-task' task.pk %}"
             hx-target="#tasks"
             hx-vals="js:{ collection: getCollectionFromUrl() }"
             hw-swap="outerHTML"
-            type="submit">
+            type="submit"
+            class="task-button button-remove">
         Remove
     </button>
 </form>

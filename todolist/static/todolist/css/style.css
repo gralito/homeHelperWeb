@@ -132,17 +132,29 @@ main {
     height: 30px;
     border:var(--bg-task) 1px solid;
     border-radius: 15px;
-    background: linear-gradient(rgb(139, 169, 206), rgba(139, 169, 206, 0.6));
+    /* background: linear-gradient(rgb(139, 169, 206), rgba(139, 169, 206, 0.6)); */
 }
-.todolist-task input {
+/* .todolist-task input {
     justify-self: left;
     width: auto;
-}
+} */
 .todolist-task p {
-    width: 73%;
+    /* width: 73%; */
+    width: 60%;
+    padding-left: 5px;
 }
-.todolist-task button {
+.task-button {
     width: 20%;
-    background: linear-gradient(rgba(230, 83, 78, 0.803), rgba(230, 83, 78, 0.583));
     border-radius: 10px;
+    margin-right: 5px;
+}
+.button-done {
+    background: linear-gradient(rgb(67, 191, 36), rgba(67, 191, 36, 0.6));
+}
+.button-remove {
+    background: linear-gradient(rgba(230, 83, 78, 0.803), rgba(230, 83, 78, 0.583));
+    margin-right: 5px;
+}
+.task-done {
+    background: linear-gradient(rgb(67, 191, 36), rgba(67, 191, 36, 0.6));
 }

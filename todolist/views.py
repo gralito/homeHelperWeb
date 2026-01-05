@@ -55,7 +55,8 @@ def toggle_done(request, task_pk):
     task = get_object_or_404(Task, id=task_pk)
     task.done = not task.done
     task.save()
-    return HttpResponse('')
+    collection = task.collection.slug
+    return get_tasks(request, collection)
 
 
 def add_collection(request):
