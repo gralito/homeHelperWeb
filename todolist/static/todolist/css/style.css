@@ -4,10 +4,6 @@ body {
     box-sizing: border-box;
     
 }
-/* input {
-    -webkit-appearance: none;
-    appearance: none;
-    } */
 
 /* COLORS */
 :root {
@@ -86,6 +82,7 @@ main {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    align-items: center;
 }
 .todolist-button-add {
     margin-top: 10px;
@@ -103,7 +100,6 @@ main {
     width: 40%;
     margin: 15px 20px;
     padding: 4px 4px;
-
 }
 .content-title div {
     display: flex;
@@ -134,10 +130,6 @@ main {
     border-radius: 15px;
     /* background: linear-gradient(rgb(139, 169, 206), rgba(139, 169, 206, 0.6)); */
 }
-/* .todolist-task input {
-    justify-self: left;
-    width: auto;
-} */
 .todolist-task p {
     /* width: 73%; */
     width: 60%;
@@ -157,4 +149,47 @@ main {
 }
 .task-done {
     background: linear-gradient(rgb(67, 191, 36), rgba(67, 191, 36, 0.6));
+}
+
+
+/*** MOBILE PHONE DISPLAY ***/
+@media all and (max-width: 780px) {
+    .col-20 {
+        display: block;
+        width: 100%;        
+    }
+    .col-80 {
+        width: 100%;
+    }
+    .todolist-nav {
+        position: initial;
+    }
+    .main-content {
+        float: none;
+        height: auto;
+    }
+    #collections {
+        padding-top: 20px;
+    }
+    .form-add-collection {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: center;
+    }
+    .content-title {
+        width: 100%;
+        margin: 20px 0px;
+    }
+    .content-title h2 {
+        text-align: center;
+        margin: 5px 0px;
+    }
+    #tasks {
+        margin-left: 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
 }
