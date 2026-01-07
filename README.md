@@ -24,7 +24,7 @@ A basic todoList app.
 
 Python (Django), htmx, HTML, CSS, JavaScript
 
-# Left to do 
+# bugfix
 
 [ ] avoiding same name collections  
     doesn't work with differents cases  
